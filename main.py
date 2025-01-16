@@ -2,19 +2,26 @@ from util import generate
 import streamlit as st
 from PIL import Image
 
-st.title("Logo lake")
+st.title("Science Visuals")
 
-# upload file
-file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
+# User text input
+user_prompt = st.text_input("Enter text to generate an image:")
 
-# display image
-if file is not None:
-    user_image = Image.open(file).convert('RGB')
-    # st.image(image, use_column_width=True)
+# Add a Generate button
+if st.button("Generate"):
+    # Check if the user provided input
+    if user_prompt.strip():
+        try:
+            # Call the generate function with the user prompt
+            gen_image, gen_video = generate(user_prompt)
 
-    # generate image
-    gen_image = generate(user_image)
+            # Display the generated image
+            if gen_image:
+                st.image(gen_image, use_container_width=True, caption="Generated Image")
+            else:
+                st.error("Image generation failed. Please try again.")
 
-    # display image
-    st.image(gen_image, use_container_width=True, caption="Generated Image")
-
+        except Exception as e:
+            st.error(f"An error occurred during generation: {e}")
+    else:
+        st.warning("Please enter a prompt before clicking Generate.")

@@ -5,17 +5,18 @@ import base64
 import random
 from PIL import Image
 from io import BytesIO
+import json
 
 # Load environment variables from .env file
 load_dotenv()
 
 # API key from environment variable
-BASETEN_API_KEY = os.getenv("SD_LIGHTNING_API")
+BASETEN_API_KEY = os.getenv("BASETEN_KEY")
 if not BASETEN_API_KEY:
     raise ValueError("API_KEY not found. Please ensure it's set in the .env file.")
 
 # Replace the empty string with your model id below
-model_id = "5qe60523"
+model_id = "vq0mjd43"
 
 
 
@@ -28,20 +29,13 @@ def pil_image_to_base64(pil_image):
     return "data:image/png;base64," + base64.b64encode(byte_im).decode("utf-8")
 
 
-def generate(user_image):
-
-    # user image to base64
-    base64_str = pil_image_to_base64(user_image)
+def generate(user_prompt):
 
     values = {
-  "positive_prompt": "A forrest seen from above, with a lake in the center, 4k",
-  "negative_prompt": "blurry, text, low quality",
-  "controlnet_image": "https://drive.google.com/uc?export=download&id=1P1OmivWs7KyU8yUAbrZ8oM9TxEj3DpxB",
-  #"controlnet_image": base64_str,
-  "seed": random.randint(1, 1000000)
+        "prompt": f"{user_prompt}"
     }
-    
-    #Call model endpoint
+
+    # Call model endpoint
     res = requests.post(
         f"https://model-{model_id}.api.baseten.co/production/predict",
         headers={"Authorization": f"Api-Key {BASETEN_API_KEY}"},
@@ -49,18 +43,62 @@ def generate(user_image):
     )
 
     res = res.json()
-    preamble = "data:image/png;base64,"
-    output = base64.b64decode(res["result"][1]["data"].replace(preamble, ""))
+    # print("Full API Response:", res)  # Inspect the response
+
+    # Save the full API response to a text file
+    try:
+        with open("api_response.txt", "w") as f:
+            json.dump(res, f, indent=4)  # Pretty-print with indentation
+        print("Full API response saved to api_response.txt")
+    except Exception as e:
+        print(f"Failed to save API response to file: {e}")
+
+    # Processing image
+    try:
+        preamble = "data:image/png;base64,"
+        # Adjust the index based on the actual response structure
+        image_data = res["result"][0]["data"].replace(preamble, "")
+        output_image = base64.b64decode(image_data)
+
+        # Save image to file
+        #with open("SciViz_image.png", 'wb') as img_file:
+        #    img_file.write(output)
+        #print("Generated image saved as SciViz_image.png")
+
+        # Optionally, open the image (adjust command based on OS)
+        # os.system("open SciViz_image.png")  # macOS
+        # os.system("start SciViz_image.png")  # Windows
+        # os.system("xdg-open SciViz_image.png")  # Linux
+    except KeyError as e:
+        print(f"Key error: {e}. Please check the response structure.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+    # Processing video
+    try:
+        preamble = "data:video/mp4;base64,"
+        # Adjust the key path based on the actual response structure
+        for count, item in enumerate(res.get("result", [])):
+            if item.get("format") == "mp4":
+                video_object = count
+                break
+
+        video_data = res["result"][video_object]["data"].replace(preamble, "")
+        output_video = base64.b64decode(video_data)
+
+        # Save video to file
+        #with open("SciViz_video.mp4", 'wb') as video_file:
+        #    video_file.write(output)
+        #print("Generated video saved as SciViz_video.mp4")
+
+        # Optionally, open the video (adjust command based on OS)
+        # os.system("open SciViz_video.mp4")  # macOS
+        # os.system("start SciViz_video.mp4")  # Windows
+        # os.system("xdg-open SciViz_video.mp4")  # Linux
+    except KeyError as e:
+        print(f"Key error: {e}. Please check the response structure.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
-
-    # 1) Get the base64 string by removing the preamble
-    base64_str = res["result"][1]["data"].replace(preamble, "")
-
-    # 2) Decode once into bytes
-    img_bytes = base64.b64decode(base64_str)
-
-    # 3) Convert those bytes into a PIL image
-    generated_img = Image.open(BytesIO(img_bytes)).convert("RGB")
-
-    return generated_img
+    return output_image, output_video
