@@ -1,0 +1,11 @@
+[
+  {
+      "url": "https://civitai.com/api/download/models/351306",
+      "path": "models/checkpoints/albedobaseXL_v31Large.safetensors"
+  },
+  {
+      "url": "https://huggingface.co/Kijai/DepthAnythingV2-safetensors/resolve/main/depth_anything_v2_vitl_fp32.safetensors",
+      "path": "models/depthanything/depth_anything_v2_vitl_fp32.safetensors"
+
+  }
+]

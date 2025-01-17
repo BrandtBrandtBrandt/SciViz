@@ -1,0 +1,399 @@
+{
+  "39": {
+    "inputs": {
+      "da_model": [
+        "75",
+        0
+      ],
+      "images": [
+        "104",
+        0
+      ]
+    },
+    "class_type": "DepthAnything_V2"
+  },
+  "40": {
+    "inputs": {
+      "mask": [
+        "105",
+        0
+      ]
+    },
+    "class_type": "MaskToImage"
+  },
+  "41": {
+    "inputs": {
+      "a": [
+        "77",
+        0
+      ]
+    },
+    "class_type": "CM_IntToFloat"
+  },
+  "42": {
+    "inputs": {
+      "method": "intensity",
+      "image": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "Image To Mask"
+  },
+  "50": {
+    "inputs": {
+      "any_05": [
+        "52",
+        0
+      ]
+    },
+    "class_type": "Any Switch (rgthree)"
+  },
+  "52": {
+    "inputs": {
+      "any_05": [
+        "53",
+        0
+      ]
+    },
+    "class_type": "Any Switch (rgthree)"
+  },
+  "53": {
+    "inputs": {},
+    "class_type": "Any Switch (rgthree)"
+  },
+  "75": {
+    "inputs": {
+      "model": "depth_anything_v2_vitl_fp32.safetensors"
+    },
+    "class_type": "DownloadAndLoadDepthAnythingV2Model"
+  },
+  "77": {
+    "inputs": {
+      "Number": 100
+    },
+    "class_type": "Int"
+  },
+  "78": {
+    "inputs": {
+      "Number": 30
+    },
+    "class_type": "Float"
+  },
+  "90": {
+    "inputs": {
+      "a": [
+        "128",
+        0
+      ],
+      "b": [
+        "41",
+        0
+      ]
+    },
+    "class_type": "JWFloatMul"
+  },
+  "91": {
+    "inputs": {
+      "value": [
+        "90",
+        0
+      ],
+      "mode": "round"
+    },
+    "class_type": "JWFloatToInteger"
+  },
+  "92": {
+    "inputs": {
+      "any_02": [
+        "100",
+        0
+      ]
+    },
+    "class_type": "Any Switch (rgthree)"
+  },
+  "93": {
+    "inputs": {
+      "any_01": [
+        "142",
+        0
+      ]
+    },
+    "class_type": "Any Switch (rgthree)"
+  },
+  "94": {
+    "inputs": {
+      "image": [
+        "93",
+        0
+      ]
+    },
+    "class_type": "Get resolution [Crystools]"
+  },
+  "99": {
+    "inputs": {
+      "any_01": [
+        "142",
+        0
+      ]
+    },
+    "class_type": "Any Switch (rgthree)"
+  },
+  "100": {
+    "inputs": {
+      "Number": 100
+    },
+    "class_type": "Float"
+  },
+  "101": {
+    "inputs": {
+      "any_01": [
+        "91",
+        0
+      ]
+    },
+    "class_type": "Any Switch (rgthree)"
+  },
+  "102": {
+    "inputs": {
+      "images": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "PreviewImage"
+  },
+  "103": {
+    "inputs": {
+      "images": [
+        "40",
+        0
+      ]
+    },
+    "class_type": "PreviewImage"
+  },
+  "104": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "scale_by": 0.8,
+      "image": [
+        "93",
+        0
+      ]
+    },
+    "class_type": "ImageScaleBy"
+  },
+  "105": {
+    "inputs": {
+      "radius": 5,
+      "shape": "circle",
+      "masks": [
+        "42",
+        0
+      ]
+    },
+    "class_type": "DilateErodeMask"
+  },
+  "106": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "scale_by": 1,
+      "image": [
+        "99",
+        0
+      ]
+    },
+    "class_type": "ImageScaleBy"
+  },
+  "122": {
+    "inputs": {
+      "animation_speed": 1,
+      "input_fps": [
+        "92",
+        0
+      ],
+      "output_fps": [
+        "78",
+        0
+      ],
+      "num_frames": [
+        "101",
+        0
+      ],
+      "quality": 100,
+      "ssaa": 2,
+      "invert": 0,
+      "tiling_mode": "mirror",
+      "image": [
+        "106",
+        0
+      ],
+      "depth_map": [
+        "40",
+        0
+      ],
+      "motion": [
+        "126",
+        0
+      ]
+    },
+    "class_type": "Depthflow"
+  },
+  "126": {
+    "inputs": {
+      "any_01": [
+        "127",
+        0
+      ],
+      "any_05": [
+        "50",
+        0
+      ]
+    },
+    "class_type": "Any Switch (rgthree)"
+  },
+  "127": {
+    "inputs": {
+      "strength": 0.6,
+      "feature_threshold": 0,
+      "feature_param": "intensity",
+      "feature_mode": "relative",
+      "intensity": 0.8,
+      "reverse": false,
+      "depth": 0.5
+    },
+    "class_type": "DepthflowMotionPresetOrbital"
+  },
+  "128": {
+    "inputs": {
+      "value": 6.000000000000001
+    },
+    "class_type": "FloatConstant"
+  },
+  "130": {
+    "inputs": {
+      "frame_rate": [
+        "78",
+        0
+      ],
+      "loop_count": 0,
+      "filename_prefix": [
+        "131",
+        0
+      ],
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 11,
+      "save_metadata": false,
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "122",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine"
+  },
+  "131": {
+    "inputs": {
+      "date": "true",
+      "date_directory": "false",
+      "custom_directory": "",
+      "custom_text": ""
+    },
+    "class_type": "FileNamePrefixDateDirFirst"
+  },
+  "138": {
+    "inputs": {
+      "text": "text, watermark",
+      "clip": [
+        "144",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "139": {
+    "inputs": {
+      "text": "{{prompt}}",
+      "clip": [
+        "144",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "140": {
+    "inputs": {
+      "width": 728,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage"
+  },
+  "141": {
+    "inputs": {
+      "seed": 401175538602345,
+      "steps": 20,
+      "cfg": 8,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "144",
+        0
+      ],
+      "positive": [
+        "139",
+        0
+      ],
+      "negative": [
+        "138",
+        0
+      ],
+      "latent_image": [
+        "140",
+        0
+      ]
+    },
+    "class_type": "KSampler"
+  },
+  "142": {
+    "inputs": {
+      "samples": [
+        "141",
+        0
+      ],
+      "vae": [
+        "144",
+        2
+      ]
+    },
+    "class_type": "VAEDecode"
+  },
+  "143": {
+    "inputs": {
+      "filename_prefix": "sciViz",
+      "images": [
+        "142",
+        0
+      ]
+    },
+    "class_type": "SaveImage"
+  },
+  "144": {
+    "inputs": {
+      "ckpt_name": "albedobaseXL_v31Large.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple"
+  },
+  "147": {
+    "inputs": {
+      "images": [
+        "142",
+        0
+      ]
+    },
+    "class_type": "PreviewImage"
+  }
+}
