@@ -12,12 +12,18 @@ from griptape.tools import PromptSummaryTool, WebScraperTool
 # Load environment variables from .env file
 load_dotenv()
 
-# API key from environment variable
-BASETEN_API_KEY = os.getenv("BASETEN_KEY")
-if not BASETEN_API_KEY:
-    raise ValueError("API_KEY not found. Please ensure it's set in the .env file.")
+# Try to retrieve API keys from environment variables
+openai_api_key = os.getenv("OPENAI_API_KEY")
+baseten_api_key = os.getenv("BASETEN_API_KEY")
 
-# Replace the empty string with your model id below
+# Fallback to Streamlit secrets if environment variables are not set
+if not openai_api_key:
+    openai_api_key = st.secrets["OPENAI_API_KEY"]
+
+if not baseten_api_key:
+    baseten_api_key = st.secrets["BASETEN_API_KEY"]
+
+# Replace the string with your model id below
 model_id = "vq0mjd43"
 
 
