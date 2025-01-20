@@ -1,4 +1,4 @@
-griptape
+griptape[all]
 streamlit
 requests
 python-dotenv
