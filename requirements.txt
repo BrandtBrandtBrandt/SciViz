@@ -1,0 +1,4 @@
+griptape
+streamlit
+requests
+python-dotenv
