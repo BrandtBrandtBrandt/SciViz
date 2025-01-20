@@ -2,10 +2,12 @@ import requests
 from dotenv import load_dotenv
 import os
 import base64
-import random
-from PIL import Image
+# import random
+# from PIL import Image
 from io import BytesIO
 import json
+from griptape.structures import Agent
+from griptape.tools import PromptSummaryTool, WebScraperTool
 
 # Load environment variables from .env file
 load_dotenv()
@@ -29,7 +31,7 @@ def pil_image_to_base64(pil_image):
     return "data:image/png;base64," + base64.b64encode(byte_im).decode("utf-8")
 
 
-def generate(user_prompt):
+def gen_visual(user_prompt):
 
     values = {
         "prompt": f"{user_prompt}"
@@ -102,3 +104,56 @@ def generate(user_prompt):
 
 
     return output_image, output_video
+
+### chatGPT prompting API Call ###
+def gen_prompt(user_link):
+
+
+    # import json
+
+    load_dotenv()  # Load environment variables
+
+    # 1) Create an Agent with the web scraping and summarization tools
+    agent_scraper = Agent(tools=[
+        WebScraperTool(off_prompt=True),
+        PromptSummaryTool(off_prompt=False)
+    ])
+
+    # 2) Scrape the website and store the output
+    scraped_run = agent_scraper.run(
+        f"Summarize this article: {user_link}"
+    )
+
+    #scraped_run
+
+    #print("Here is the final text:")
+    #print(json.dumps(scraped_run))
+    #print(dir(scraped_run))
+
+    # print(f"scarped output: {scraped_run.output}")
+
+    scraped_output = scraped_run.output
+
+
+
+    # 3) Now create a second Agent for the final prompt
+    agent_prompt = Agent()
+
+    # 4) Combine the scraped output with your instructions
+    final_input = (
+        f"{scraped_output}\n\n"
+        "You are a master illustrator. Write a descriptive image prompt for stable diffusion "
+        "that effectively illustrates the article above. Focus on the subject of the article as "
+        "the main element of the graphic and start the prompt with that. The style of the image "
+        "should be: graphic design, swiss style, retro futurism, art deco, bauhaus, modern. "
+        "only write the prompt."
+    )
+
+    # 5) Run the second agent and print/return the result
+    # response = agent_prompt.run(final_input)
+    response = agent_prompt.run(final_input)
+    # print(response.output)
+
+    generatedResponse = response.output
+
+    return generatedResponse

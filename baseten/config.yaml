@@ -1,0 +1,41 @@
+build_commands:
+- git clone https://github.com/comfyanonymous/ComfyUI.git
+- cd ComfyUI && git checkout 3aaabb12d422eb35cd0314a09582c0a47d505a37 && pip install -r requirements.txt
+- mkdir -p ComfyUI/user
+- apt-get update && apt-get install -y git
+- python3 -m pip install --upgrade pip setuptools wheel
+- cd ComfyUI/custom_nodes && git clone https://github.com/BadCafeCode/masquerade-nodes-comfyui --recursive
+- cd ComfyUI/custom_nodes && git clone https://github.com/spacepxl/ComfyUI-Image-Filters --recursive && cd ComfyUI-Image-Filters && pip install -r requirements.txt
+- cd ComfyUI/custom_nodes && git clone https://github.com/M1kep/ComfyLiterals --recursive
+- cd ComfyUI/custom_nodes && git clone https://github.com/bash-j/mikey_nodes --recursive
+- cd ComfyUI/custom_nodes && git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite --recursive && cd ComfyUI-VideoHelperSuite && pip install -r requirements.txt
+- cd ComfyUI/custom_nodes && git clone https://github.com/rgthree/rgthree-comfy --recursive
+- cd ComfyUI/models/checkpoints && wget -O albedobaseXL_v31Large.safetensors https://civitai.com/api/download/models/351306
+- cd ComfyUI/custom_nodes && git clone https://github.com/BrandtBrandtBrandt/grip.git ComfyUI-Griptape --recursive && cd ComfyUI-Griptape && pip install -r requirements.txt
+- cd ComfyUI/custom_nodes && git clone https://github.com/kijai/ComfyUI-DepthAnythingV2 --recursive && cd ComfyUI-DepthAnythingV2 && pip install -r requirements.txt
+- cd ComfyUI/custom_nodes && git clone https://github.com/evanspearman/ComfyMath --recursive && cd ComfyMath && pip install -r requirements.txt
+- cd ComfyUI/custom_nodes && git clone https://github.com/jamesWalker55/comfyui-various --recursive
+- cd ComfyUI/custom_nodes && git clone https://github.com/crystian/ComfyUI-Crystools --recursive && cd ComfyUI-Crystools && pip install -r requirements.txt
+- cd ComfyUI/custom_nodes && git clone https://github.com/kijai/ComfyUI-KJNodes --recursive && cd ComfyUI-KJNodes && pip install -r requirements.txt
+- cd ComfyUI/custom_nodes && git clone https://github.com/akatz-ai/ComfyUI-Depthflow-Nodes --recursive && cd ComfyUI-Depthflow-Nodes && pip install -r requirements.txt
+external_package_dirs: []
+model_metadata: {}
+model_name: ComfyUI Workflow
+python_version: py311
+requirements:
+  - websocket-client==1.6.4
+  - accelerate==0.23.0
+  - opencv-python
+  - griptape
+  - griptape-tools
+resources:
+  accelerator: A100
+  use_gpu: true
+secrets:
+  OPENAI_API_KEY: null
+system_packages:
+  - wget
+  - ffmpeg
+  - libgl1-mesa-glx
+  - libegl1-mesa
+  - libgles2-mesa
