@@ -46,7 +46,7 @@ def gen_visual(user_prompt):
     # Call model endpoint
     res = requests.post(
         f"https://model-{model_id}.api.baseten.co/production/predict",
-        headers={"Authorization": f"Api-Key {BASETEN_API_KEY}"},
+        headers={"Authorization": f"Api-Key {baseten_api_key}"},
         json={"workflow_values": values},
     )
 
