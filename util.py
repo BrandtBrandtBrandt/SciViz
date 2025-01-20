@@ -24,7 +24,7 @@ if not baseten_api_key:
     baseten_api_key = st.secrets["BASETEN_API_KEY"]
 
 # Replace the string with your model id below
-model_id = "w711l0w"
+model_id = "wgxm9o3"
 
 
 
