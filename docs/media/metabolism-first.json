@@ -1,0 +1,23 @@
+{
+  "sourceArticle": "https://www.quantamagazine.org/what-is-the-metabolism-first-theory-for-the-origin-of-life-20261111/",
+  "articleHeading": "How a Metabolic Spark Could Have Jump-Started Life",
+  "generatedBy": "Matias using the public SciViz demo",
+  "receivedAt": "2026-11-17",
+  "originalVideo": {
+    "path": "docs/media/metabolism-first.mp4",
+    "sha256": "afd9d7331ebf007d2864114f68d3f284ee7e387c0ae650eb4e264c6d26c65e16",
+    "durationSeconds": 6,
+    "width": 728,
+    "height": 1024,
+    "hasAudio": false
+  },
+  "readmePreview": {
+    "path": "docs/media/metabolism-first.gif",
+    "width": 320,
+    "fps": 12,
+    "loop": true,
+    "title": "Linked Markdown heading above the animation; original video pixels remain unchanged.",
+    "bytes": 2994687,
+    "sha256": "a9671f31282309b4e9a86bb3ac7730fbab2a36470868402d349f07af07b7786d"
+  }
+}
