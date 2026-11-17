@@ -8,13 +8,11 @@ Created by **Matias Brandt Møller**. My work covers the pipeline engineering, v
 
 **[Try the portfolio demo](https://www.matiasbrandt.com/projects/from-text-to-visuals#sciviz-demo)** · **[Open the Hugging Face Space](https://huggingface.co/spaces/BrandtBrandtBrandt/sciviz)** · **[Read the project story](https://www.matiasbrandt.com/projects/from-text-to-visuals)**
 
-### [How a Metabolic Spark Could Have Jump-Started Life](https://www.quantamagazine.org/what-is-the-metabolism-first-theory-for-the-origin-of-life-20261111/)
-
 <a href="docs/media/metabolism-first.mp4"><img src="docs/media/metabolism-first.gif" width="320" alt="Animated SciViz interpretation of an origin-of-life article: an orange hydrothermal plume above a teal primordial landscape, with depth-based parallax."></a>
 
-**[Watch or download the MP4](docs/media/metabolism-first.mp4)** · Source: Quanta Magazine
+*Generated with SciViz from Quanta Magazine’s “[How a Metabolic Spark Could Have Jump-Started Life](https://www.quantamagazine.org/what-is-the-metabolism-first-theory-for-the-origin-of-life-20261111/)”.*
 
-*An actual image and depth-animation output generated with the public SciViz demo. The GIF is a smaller preview; the MP4 preserves the original six-second, 728 × 1024 animation. These are artistic interpretations, not scientifically validated figures.*
+*An artistic interpretation, not a scientifically validated figure.*
 
 ## What you can try
 
