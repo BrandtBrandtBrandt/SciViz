@@ -1,0 +1,18 @@
+{
+  "name": "sciviz-web-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc --noEmit",
+    "dev": "npm run build && node serve.mjs",
+    "preview": "node serve.mjs"
+  },
+  "dependencies": {
+    "@gradio/client": "2.7.2"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "typescript": "5.9.3"
+  }
+}

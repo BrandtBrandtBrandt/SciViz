@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SciViz — scientific articles, reimagined</title>
+<meta name="description" content="Turn a scientific article into an illustration and looping 2.5D animation.">
+<link rel="stylesheet" href="/assets/site.css"></head>
+<body><header><a href="https://www.matiasbrandt.com/projects/from-text-to-visuals">SciViz by Matias Brandt Møller</a><a href="https://github.com/BrandtBrandtBrandt/SciViz">Source on GitHub</a></header>
+<main><section class="sciviz-experience editorial-wrap" id="sciviz-demo" data-sciviz aria-labelledby="sciviz-title">
+  <link rel="stylesheet" href="/assets/sciviz.css">
+  <div class="sciviz-introduction case-section sqs-html-content">
+    <h1 id="sciviz-title">An article, reimagined</h1>
+    <p>Try the pipeline yourself: turn a scientific article into an illustration and a looping 2.5D animation, using the visual style explored in this project.</p>
+    <p class="media-caption">An artistic interpretation, not a scientifically validated figure. This free demo shares computing capacity on Hugging Face, so expect some waiting time, especially during busy periods. <a href="https://huggingface.co/spaces/BrandtBrandtBrandt/sciviz">Open the Hugging Face Space</a>.</p>
+  </div>
+  <div class="sciviz-workspace">
+    <div class="sciviz-invitation">
+      <img src="/assets/images/ai-introspection.png" width="728" height="1024" alt="SciViz illustration of an artificial face framed by golden circuitry, interpreting research into AI introspection." loading="lazy">
+      <div><p class="sciviz-eyebrow">SCIENCE → IMAGE → MOTION</p><h3>Try your own visual</h3><button type="button" data-open aria-expanded="false">Open SciViz <svg class="sciviz-arrow" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></button></div>
+    </div>
+    <div data-panel hidden>
+      <form>
+        <label for="sciviz-article">Article URL</label>
+        <input id="sciviz-article" name="article" type="url" value="https://www.quantamagazine.org/what-can-birdsong-teach-us-about-human-language-20241121/" placeholder="https://…" maxlength="2048" aria-describedby="sciviz-sources">
+        <p id="sciviz-sources" class="media-caption">Quanta Magazine or an arXiv abstract. <button type="button" class="sciviz-text-button" data-example data-mode="reference">Use the birdsong reference</button></p>
+        <details><summary>Or use an abstract</summary><label for="sciviz-abstract">Paste public abstract text instead of a URL</label><textarea id="sciviz-abstract" name="abstract" rows="5" minlength="80" maxlength="12000"></textarea></details>
+        <div class="sciviz-actions"><button type="submit">Generate visual</button><button type="button" data-cancel hidden>Cancel request</button><button type="button" data-close>Close</button></div>
+      </form>
+      <p class="sciviz-status media-caption" role="status" aria-live="polite">Choose an article or paste an abstract to begin. Your source is sent to the public SciViz Space; please do not submit confidential material.</p>
+      <div class="sciviz-quota-help" data-quota-help hidden>
+        <p><strong>Try with a free Hugging Face account</strong></p>
+        <p>This demo uses anonymous GPU access. Sign in on Hugging Face for a larger daily quota. Availability still depends on your remaining quota and shared capacity. No paid upgrade is needed.</p>
+        <a class="sciviz-hf-button" href="https://huggingface.co/spaces/BrandtBrandtBrandt/sciviz" target="_blank" rel="noopener noreferrer">Open SciViz on Hugging Face <svg class="sciviz-arrow" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+      </div>
+      <p class="media-caption"><a href="/assets/NOTICE.txt">Credits and licences</a></p>
+      <div class="sciviz-result" data-result hidden>
+        <div class="sciviz-result-grid">
+          <figure data-image-result hidden>
+            <div class="sciviz-result-media">
+              <img data-image alt="SciViz’s generated artistic interpretation of the submitted article.">
+              <div class="sciviz-result-title"><a data-title-link target="_blank" rel="noopener noreferrer" hidden></a><span data-title-text></span></div>
+            </div>
+            <figcaption class="sciviz-result-footer"><span>Illustration</span><a data-image-download target="_blank" rel="noopener noreferrer" hidden>Download image</a></figcaption>
+          </figure>
+          <figure data-video-result hidden>
+            <div class="sciviz-result-media">
+              <video data-video controls loop muted playsinline preload="none" aria-label="Generated SciViz animation"></video>
+              <div class="sciviz-result-title"><a data-title-link target="_blank" rel="noopener noreferrer" hidden></a><span data-title-text></span></div>
+            </div>
+            <figcaption class="sciviz-result-footer"><span>Animation</span><a data-video-download target="_blank" rel="noopener noreferrer" hidden>Download video</a></figcaption>
+          </figure>
+        </div>
+        <p class="media-caption">Generated files are temporary. Download anything you want to keep.</p>
+      </div>
+    </div>
+  </div>
+  <noscript><p>Enable JavaScript to try SciViz, or open SciViz on Hugging Face.</p></noscript>
+  <script type="module" src="/assets/app.js"></script>
+</section></main><footer>Local previews use the fixed birdsong article and image seed for comparison. Generation still calls the public Hugging Face backend and uses its quota. <a href="https://www.matiasbrandt.com/projects/from-text-to-visuals">Explore the original examples in the project story</a>.</footer></body></html>

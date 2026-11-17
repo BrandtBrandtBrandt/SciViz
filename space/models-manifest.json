@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "verified_metadata_at": "2026-11-03",
+  "models": [
+    {
+      "id": "albedobase-xl-v31-large",
+      "filename": "albedobaseXL_v31Large.safetensors",
+      "publisher": "albedobond",
+      "publisher_url": "https://civitai.com/models/140737/albedobase-xl",
+      "metadata_url": "https://civitai.com/api/v1/models/140737",
+      "version_id": 1041855,
+      "size_bytes": 6938040682,
+      "sha256": "c379d154eb476b67b390e31463c41c79ac9e766466315408886ebb7faa2ea098",
+      "original_download": "https://civitai.com/api/download/models/1041855?fileId=947593",
+      "mirror": {
+        "repo": "75dhsx/albedobond",
+        "revision": "6b748cbcccf7796f3800859453364632bfa9137e",
+        "filename": "albedobaseXL_v31Large.safetensors",
+        "role": "Third-party mirror; accept only bytes matching publisher SHA-256."
+      },
+      "publisher_permissions": {
+        "credit_required": true,
+        "allowCommercialUse": ["Image", "RentCivit", "Rent"],
+        "allowDerivatives": true,
+        "allowDifferentLicense": false
+      },
+      "license_review": "Preserve publisher permissions and inherited SDXL terms; no weight redistribution in the application repository.",
+      "status": "Full download size and SHA-256 verified on HF; original ComfyUI image inference passed (docs/m1-image-review.json)."
+    },
+    {
+      "id": "qwen2.5-1.5b-instruct",
+      "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "role": "CPU article summary and visual concept; no hosted inference provider",
+      "status": "Development default: five actual anonymous CPU runs passed, but visual-subject adherence is inadequate. Not accepted for production."
+    },
+    {
+      "id": "qwen3-4b-instruct-2507",
+      "repo": "Qwen/Qwen3-4B-Instruct-2507",
+      "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+      "license": "Apache-2.0",
+      "role": "CPU quality candidate; same 90-second deadline, no GPU or paid inference",
+      "status": "Rejected for full-article latency: float32 timed out on two cases; dynamic int8 also hit the 90-second limit on the fractal case. Retained as an optional research candidate, not the default."
+    },
+    {
+      "id": "depth-anything-v2-small",
+      "repo": "depth-anything/Depth-Anything-V2-Small-hf",
+      "revision": "5426e4f0f36572d16453bbda7a8389317b1bef99",
+      "license": "Apache-2.0",
+      "role": "Depth estimation; replaces original non-commercial Large weights",
+      "status": "Loaded on HF; hosted inference not yet verified because anonymous GPU runs limit was reached."
+    }
+  ]
+}

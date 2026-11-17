@@ -1,1 +1,21 @@
-**.env
+# Local secrets and environments
+.env
+.env.*
+!.env.example
+**/.streamlit/secrets.toml
+.venv/
+.venv-*/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Generated output, dependencies and model caches
+**/node_modules
+web/dist/
+outputs/
+.cache/
+models/
+*.safetensors
+*.ckpt
+*.pt
+*.pth

@@ -1,0 +1,37 @@
+{
+  "publishedAt": "2026-11-17T11:19:37.160483+00:00",
+  "space": "BrandtBrandtBrandt/sciviz",
+  "previousRevision": "899550f08780fe3dbdc5cb6439e81010cf04888d",
+  "revision": "bbd649a17f6a59cf5b79a76517c0b245cbd45d10",
+  "commitUrl": "https://huggingface.co/spaces/BrandtBrandtBrandt/sciviz/commit/bbd649a17f6a59cf5b79a76517c0b245cbd45d10",
+  "files": [
+    {
+      "path": "sciviz/article.py",
+      "sha256": "66fdf18c65ee29cda26ee2993b4945b6effc5bbb6448dcb556ace8c922156478"
+    },
+    {
+      "path": "sciviz/quanta.py",
+      "sha256": "611e9c5110e4d915f446bcc2694ce7c8a2640f55c5b0159483b0cf9865762c27"
+    }
+  ],
+  "scope": "Only article extraction and random article selection",
+  "gpuInferencePerformed": false,
+  "localTestsPassed": 26,
+  "githubPushed": false,
+  "portfolioDeployed": false,
+  "otherLocalChangesPublished": false,
+  "verifiedAt": "2026-11-17T11:23:49.746767+00:00",
+  "verified": {
+    "publishedSourceHashesMatch": true,
+    "runningRevision": "bbd649a17f6a59cf5b79a76517c0b245cbd45d10",
+    "runtimeStage": "RUNNING",
+    "hardwareUnchanged": "zero-a10g",
+    "anonymousWebsiteArticlePicker": true,
+    "pickedUrl": "https://www.quantamagazine.org/what-makes-up-the-cosmos-a-20-year-survey-hints-that-something-is-missing-20261116/",
+    "pickedTitle": "What Makes Up the Cosmos? A 20-Year Survey Hints That Something Is Missing.",
+    "selectedAfterReadabilityValidation": true,
+    "generateButtonEnabledAfterSelection": true,
+    "fullGenerationTested": false,
+    "modelOrGpuCalls": 0
+  }
+}

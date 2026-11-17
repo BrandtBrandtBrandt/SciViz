@@ -1,0 +1,92 @@
+{
+  "space": "BrandtBrandtBrandt/sciviz",
+  "revision": "899550f08780fe3dbdc5cb6439e81010cf04888d",
+  "files": [
+    {
+      "file": ".gitattributes",
+      "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+      "bytes": 1519
+    },
+    {
+      "file": "README.md",
+      "sha256": "0570422668984bc5926cdb6c87f524515efc95fcaa4aff6ed6518174071216ea",
+      "bytes": 4820
+    },
+    {
+      "file": "app.py",
+      "sha256": "b938064a63f1da7905a6843cdc0c636109379221757da8a55850130e775c0fea",
+      "bytes": 16374
+    },
+    {
+      "file": "depthflow_probe.py",
+      "sha256": "a08fc020c61794f084fa6b4037547f9de978791dd95ffd1ea2c7258eb9922fd1",
+      "bytes": 4003
+    },
+    {
+      "file": "image_probe.py",
+      "sha256": "97539d8e343c99c4ce550015598bffff6458e5a5744e6063d32d96754af9f0fb",
+      "bytes": 5066
+    },
+    {
+      "file": "models-manifest.json",
+      "sha256": "3e4a7566c12b0dbeece860b74cd31ba4f814f29f4fe1cdb366921cfcd0edb8e8",
+      "bytes": 2633
+    },
+    {
+      "file": "packages.txt",
+      "sha256": "39fe995627f788265ed9bf05ec4682ad2e501e54281798c471a9e22ae81aae29",
+      "bytes": 38
+    },
+    {
+      "file": "requirements.txt",
+      "sha256": "7625f01e2e2d04fcf594843553cf038176fc6e5d5ce4ef4cabab3e12c896c1ea",
+      "bytes": 9535
+    },
+    {
+      "file": "runtime_probe.py",
+      "sha256": "518128b5767af53a3922e2d1b89f9c1822f1bb90f980d4b435bb8726379cb4de",
+      "bytes": 7419
+    },
+    {
+      "file": "sciviz/__init__.py",
+      "sha256": "7e18655a8729acc0cf0c55bbb3a43f92958617dc8902911c9d8601ea2505c722",
+      "bytes": 74
+    },
+    {
+      "file": "sciviz/animation.py",
+      "sha256": "2d6ab20d338023cca6b9329c42a3eb1746647b6a375388b259eaaf69ce38d861",
+      "bytes": 1666
+    },
+    {
+      "file": "sciviz/article.py",
+      "sha256": "1af07e97f14374d39ce4b48ebef66a531270e9bd6b09553b38f1dad1c6e495c4",
+      "bytes": 5381
+    },
+    {
+      "file": "sciviz/contracts.py",
+      "sha256": "83d984e3d48120a912d1c5e321d4d5d70bc1d50e37d15e26f43e896c72054500",
+      "bytes": 401
+    },
+    {
+      "file": "sciviz/depth.py",
+      "sha256": "5f18178dc0acbda5a1dd0026fb897e12620159f9ffa8e56c4cb8cb44f7f54061",
+      "bytes": 2027
+    },
+    {
+      "file": "sciviz/prompting.py",
+      "sha256": "fbebecb8ef49749ea969e3509dbae456bffcd78c17c4754890dc6586dc83376d",
+      "bytes": 5184
+    },
+    {
+      "file": "sciviz/quanta.py",
+      "sha256": "9cdb2922254e6a52856bdd687a9da4b17abdfc5bf4dd385ba47f21d958e6f137",
+      "bytes": 3049
+    }
+  ],
+  "portfolioCommit": "aa8ca08add19874602e7448812532bad6e65bf2f",
+  "importedAt": "2026-11-17",
+  "note": "Initial public Space source snapshot; subsequent local fixes are recorded in the Git diff. No model weights, credentials or generation outputs were imported.",
+  "omittedFromSpaceFolder": {
+    ".gitattributes": "Hugging Face LFS patterns are unnecessary for this source-only mirror."
+  }
+}
